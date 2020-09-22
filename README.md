@@ -51,4 +51,4 @@ Examples:
   url-tester test -f -a       : Test broken URL in the html files in current dir
 ```
 ## Example Outcome
-
+[outcomes]
