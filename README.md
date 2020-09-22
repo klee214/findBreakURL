@@ -1,6 +1,6 @@
 # findBreakURL
 
-## Describtion
+## Description
 This tool will detect any broken URL inside either single HTML file or multiple HTML files (decided by options). 
 You can specify a HTML file with its' name or otherwise it will automatically detects any HTML files in the current directory.
 
