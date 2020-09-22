@@ -29,7 +29,7 @@ npm link
 3. Now, you are good to go.
                
 ## Usage
-Keep in mind! You have to put the html files you want to test in the ./bin folder.
+Keep in mind! You have to put the html files you want to test in the findBreakURL folder.
 In other words, index.js and your testing html files must be in the same folder
 
 The tool name(cli program name) is url-tester.
