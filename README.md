@@ -50,4 +50,5 @@ Examples:
   url-tester test -f foo.html : Test if there is any broken URL in the html file
   url-tester test -f -a       : Test broken URL in the html files in current dir
 ```
+## Example Outcome
 
