@@ -52,3 +52,6 @@ Examples:
 ```
 ## Outcome exmple
 ![outcomes](https://github.com/klee214/findBreakURL/blob/master/Capture.PNG)
+
+## License
+MIT License
