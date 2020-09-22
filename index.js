@@ -5,14 +5,14 @@ const yargs = require("yargs");
 const chalk = require("chalk");
 
 yargs
-  .usage("Usage: node $0 <command> [options] <optionalFilename>")
+  .usage("Usage: url-tester <command> [options] <optionalFilename>")
   .command("test", "Test to find any broken URL")
   .example(
-    "node $0 test -f foo.html",
+    "url-tester test -f foo.html",
     " Test if there is any broken URL in the html file"
   )
   .example(
-    "node $0 test -f -a",
+    "url-tester test -f -a",
     " Test broken URL in the html files in current dir"
   )
   .alias("f", "file")
