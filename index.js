@@ -19,7 +19,7 @@ yargs
   .alias("f", "file")
   .alias("a", "all")
   .demandOption(["f"])
-  .describe("f", "Load a specified HTML file")
+  .describe("f", "Load a specified file")
   .describe("a", "Load all HTML files in the current dir")
   .version()
   .alias("v", "version")
@@ -30,7 +30,7 @@ yargs
 let fileData = null;
 let files = [];
 
-// decide the option either -f or -a
+// decide the option if it is -f or -a
 if (yargs.argv.a || typeof yargs.argv.f !== "string") {
   const tmpFiles = fs.readdirSync(__dirname, { encoding: "utf-8" });
   files = tmpFiles.filter((file) => {
@@ -40,7 +40,7 @@ if (yargs.argv.a || typeof yargs.argv.f !== "string") {
   files.push(yargs.argv.f);
 }
 
-// map through the array fetch each html file
+// map through the array and test GET request
 files.map((file) => {
   fileData = fs.readFileSync(`${__dirname}\\${file}`, {
     encoding: "utf-8",

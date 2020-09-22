@@ -38,10 +38,10 @@ It has only one command and 2 options.
 Usage: url-tester <command> [options] <optionalFilename>
 
 Commands:
-  url-tester test : Test to find any broken URL
+  test : Test to find any broken URL
 
 Options: 
-  -f, --file     Load a specified HTML file                           [required]
+  -f, --file     Load a specified file                           [required]
   -a, --all      Load all HTML files in the current dir
   -v, --version  Show version number                                   [boolean]
   -h, --help     Show help                                             [boolean]
