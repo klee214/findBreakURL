@@ -10,14 +10,36 @@ For example,
 <tool name> [options] filename => one html file
              <tool name> [options] [options] => any html files within the directory.
 ```
+
+## Installation
+1. Clone the entire code like wise 
+```
+git clone <This git repos url/ssh>
+```
+2. After installing it, change to the cloned directory, and install npm modules globally (suggested)
+```
+cd findBreakURL
+npm i -g
+```
+// OR
+```
+cd findBreakURL
+npm i 
+npm link
+```
+3. Now, you are good to go.
                
 ## Usage
+Keep in mind! You have to put the html files you want to test in the ./bin folder.
+In other words, index.js and your testing html files must be in the same folder
 
+The tool name(cli program name) is url-tester.
+It has only one command and 2 options.
 ```
-Usage: node index <command> [options] <optionalFilename>
+Usage: url-tester <command> [options] <optionalFilename>
 
 Commands:
-  index test  Test to find any broken URL
+  url-tester test : Test to find any broken URL
 
 Options: 
   -f, --file     Load a specified HTML file                           [required]
@@ -26,7 +48,7 @@ Options:
   -h, --help     Show help                                             [boolean]
 
 Examples:
-  node index test -f foo.html  Test if there is any broken URL in the html file
-  node index test -f -a        Test broken URL in the html files in current dir
+  url-tester test -f foo.html : Test if there is any broken URL in the html file
+  url-tester test -f -a       : Test broken URL in the html files in current dir
 ```
 
