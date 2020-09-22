@@ -1,12 +1,15 @@
 {
-  "name": "lab0",
-  "version": "1.0.0",
+  "name": "url-tester",
+  "version": "1.0.2",
   "description": "this is the cmd program to find broken url line",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "bin": {
+    "url-tester": "./index.js"
+  },
+  "author": "Kimin Lee",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.20.0",

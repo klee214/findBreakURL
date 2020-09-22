@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const axios = require("axios");
 const fs = require("fs");
 const validator = require("validator");
@@ -45,7 +46,7 @@ files.map((file) => {
     encoding: "utf-8",
   });
 
-  const regex = /(https:\/\/|http:\/\/)[^"']+"/g;
+  const regex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/g;
   const findURL = fileData.match(regex);
 
   const fetchFunction = async (url) => {
