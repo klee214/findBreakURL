@@ -38,7 +38,7 @@ It has only one command and 2 options.
 Usage: url-tester <command> [options] <optionalFilename>
 
 Commands:
-  test : Test to find any broken URL
+  start : Test to find any broken URL
 
 Options: 
   -f, --file     Load a specified file                           [required]
@@ -47,8 +47,8 @@ Options:
   -h, --help     Show help                                             [boolean]
 
 Examples:
-  url-tester test -f foo.html : Test if there is any broken URL in the html file
-  url-tester test -f -a       : Test broken URL in the html files in current dir
+  url-tester start -f foo.html : Test if there is any broken URL in the html file
+  url-tester start -f -a       : Test broken URL in the html files in current dir
 ```
 ## Outcome exmple
 ![outcomes](https://github.com/klee214/findBreakURL/blob/master/Capture.PNG)
