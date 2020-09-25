@@ -1,6 +1,6 @@
 {
   "name": "url-tester",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "this is the cmd program to find broken url line",
   "main": "index.js",
   "scripts": {

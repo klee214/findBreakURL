@@ -11,7 +11,9 @@ const fetchFunction = async (url, file) => {
     try {
       const response = await axios.head(url);
 
-      // 300 series... redirect status
+      // 300 series... redirect status. However axios does redirect to the changed URL automatically
+      // So status will be normal 200 in the most of the time.
+      // Most of the case this will not be run. I will implement this here just in case.
       if (response.status === 301) {
         chalk.black.bgYellow(
           console.log(
