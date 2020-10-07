@@ -30,7 +30,7 @@ npm link
                
 ## Usage
 Keep in mind! You have to put the html files you want to test in the findBreakURL folder.
-In other words, index.js and your testing html files must be in the same folder
+In other words, index.js and your testing html files must be in the same folder.
 
 The tool name(cli program name) is url-tester.
 It has only one command and 2 options.
@@ -38,17 +38,25 @@ It has only one command and 2 options.
 Usage: url-tester <command> [options] <optionalFilename>
 
 Commands:
-  start : Test to find any broken URL
+  index.js start  Test to find any broken URL
 
-Options: 
-  -f, --file     Load a specified file                           [required]
+Options:
+  -f, --file     Load all specified files (delimiter is ',')          [required]
   -a, --all      Load all HTML files in the current dir
+  -j, --json     Display all results as JSON format
+  -g, --good     Display only good URL
   -v, --version  Show version number                                   [boolean]
   -h, --help     Show help                                             [boolean]
 
 Examples:
-  url-tester start -f foo.html : Test if there is any broken URL in the html file
-  url-tester start -f -a       : Test broken URL in the html files in current dir
+  url-tester start -f=foo1.html,foo2.txt  Test if there is any broken URL in the
+                                          files
+  url-tester start -f -a                  Test broken URL in the only 'html'
+                                          files in the current dir
+  url-tester start -f=foo1.html -j        Display all results as JSON format{
+                                          url: 'https://...': status '200' },
+                                          ...
+  url-tester start -f=foo1.html -g        Display only good URL
 ```
 ## Outcome exmple
 ![outcomes](https://github.com/klee214/findBreakURL/blob/master/Capture.PNG)
