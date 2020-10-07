@@ -2,7 +2,7 @@
 const fetchFunction = require('./fetch')
 const fs = require("fs");
 const validator = require("validator");
-const files = require('./yargs');
+const {files} = require('./yargs');
 const { exit } = require('process');
 
 let fileData = null;

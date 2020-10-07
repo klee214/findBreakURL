@@ -1,5 +1,6 @@
 const chalk = require("chalk");
 const axios = require("axios");
+const { arg } = require("./yargs");
 
 /*
     The purpose of this module:
@@ -8,12 +9,13 @@ const axios = require("axios");
 */
 
 const fetchFunction = async (url, file) => {
-    try {
-      const response = await axios.head(url);
+  try {
+    const response = await axios.head(url);
 
-      // 300 series... redirect status. However axios does redirect to the changed URL automatically
-      // So status will be normal 200 in the most of the time.
-      // Most of the case this will not be run. I will implement this here just in case.
+    // 300 series... redirect status. However axios does redirect to the changed URL automatically
+    // So status will be normal 200 in the most of the time.
+    // Most of the case this will not be run. I will implement this here just in case.
+    if (!arg.b) {
       if (response.status === 301) {
         chalk.black.bgYellow(
           console.log(
@@ -56,8 +58,10 @@ const fetchFunction = async (url, file) => {
         );
         console.log(chalk.green.underline.bold("STATUS: " + response.status));
       }
-    } catch (error) {
-        // If 404 error :
+    }
+  } catch (error) {
+    if (!arg.g) {
+      // If 404 error :
       if (error.response) {
         console.log(
           chalk.white.bgRed.bold(
@@ -87,7 +91,7 @@ const fetchFunction = async (url, file) => {
         );
         chalk.white.underline(console.log(error.code));
       } else {
-          // server error or other error : error.code will indicate which error it has
+        // server error or other error : error.code will indicate which error it has
         console.log(
           chalk.white.bgGrey.bold(
             "In " + file + " file, the URL: " + url + " has following issue: "
@@ -96,6 +100,7 @@ const fetchFunction = async (url, file) => {
         chalk.white.underline(console.log(error.code));
       }
     }
-  };
+  }
+};
 
-  module.exports = fetchFunction
+module.exports = fetchFunction;
