@@ -1,5 +1,6 @@
 const yargs = require("yargs");
 const fs = require("fs");
+const chalk = require("chalk");
 
 /*
 The purpose of this module:
@@ -42,17 +43,24 @@ yargs
 
 let files = [];
 
-// decide the option if it is -f or -a
-if (yargs.argv.a && typeof yargs.argv.f !== "string") {
-  const tmpFiles = fs.readdirSync(__dirname, { encoding: "utf-8" });
+if (yargs.argv._.length === 1 && yargs.argv._[0] === "start") {
+  // decide the option if it is -f or -a
+  if (yargs.argv.a && typeof yargs.argv.f !== "string") {
+    const tmpFiles = fs.readdirSync(__dirname, { encoding: "utf-8" });
 
-  // if -a, store all files into the files variable
-  files = tmpFiles.filter((file) => {
-    return file.toLowerCase().endsWith(".html");
-  });
-} else if (typeof yargs.argv.f === "string") {
-  console.log(yargs.argv);
-  files = [...yargs.argv.f.split(",")];
+    // if -a, store all files into the files variable
+    files = tmpFiles.filter((file) => {
+      return file.toLowerCase().endsWith(".html");
+    });
+  } else if (typeof yargs.argv.f === "string") {
+    files = [...yargs.argv.f.split(",")];
+  }
+} else {
+  console.log(chalk.yellow("Wrong argument: use [start]"));
 }
+const yargObj = {
+  files,
+  arg: yargs.argv,
+};
 
-module.exports = files;
+module.exports = yargObj;
