@@ -1,6 +1,6 @@
 const yargs = require("yargs");
+const chalk = require('chalk')
 const fs = require("fs");
-const chalk = require("chalk");
 
 /*
 The purpose of this module:
@@ -26,15 +26,18 @@ yargs
     " Display all results as JSON format{ url: 'https://...': status '200' }, ... "
   )
   .example("url-tester start -f=foo1.html -g", " Display only good URL")
+  .example("url-tester start -f=foo1.html -b", " Display only baad URL")
   .alias("f", "file")
   .alias("j", "json")
   .alias("a", "all")
   .alias("g", "good")
+  .alias("b", "bad")
   .demandOption(["f"])
   .describe("f", "Load all specified files (delimiter is ',')")
   .describe("a", "Load all HTML files in the current dir")
   .describe("j", "Display all results as JSON format")
-  .describe("g", "Display only good URL")
+  .describe("g", "Display only GOOD URL")
+  .describe("g", "Display only BAD URL")
   .version()
   .alias("v", "version")
   .help()
@@ -48,12 +51,15 @@ if (yargs.argv._.length === 1 && yargs.argv._[0] === "start") {
   if (yargs.argv.a && typeof yargs.argv.f !== "string") {
     const tmpFiles = fs.readdirSync(__dirname, { encoding: "utf-8" });
 
+
     // if -a, store all files into the files variable
     files = tmpFiles.filter((file) => {
       return file.toLowerCase().endsWith(".html");
     });
   } else if (typeof yargs.argv.f === "string") {
     files = [...yargs.argv.f.split(",")];
+  } else{
+    console.log(chalk.yellow("Please enter filenames or -a following -f"))
   }
 } else {
   console.log(chalk.yellow("Wrong argument: use [start]"));
