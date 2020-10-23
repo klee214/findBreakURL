@@ -1,25 +1,13 @@
 #!/usr/bin/env node
 const { fetchFunction } = require("./fetch");
-const fs = require("fs");
 const validator = require("validator");
-const { files, arg } = require("./yargs");
+const { arg, files } = require("./yargs");
 const { jsonFetch } = require("./json");
-const { exit } = require("process");
-
-let fileData = null;
+const { fileRead } = require('./fileRead')
 
 // Start testing files each
 files.map((file) => {
-  try {
-    fileData = fs.readFileSync(`${__dirname}\\${file}`, {
-      encoding: "utf-8",
-    });
-
-    // wrong file name
-  } catch (error) {
-    console.log(file + " is a WRONG file name");
-    return process.exit(1);
-  }
+  const fileData = fileRead(file);
 
   const regex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/g;
   const findURL = fileData.match(regex);

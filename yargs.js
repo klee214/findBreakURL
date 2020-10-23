@@ -1,6 +1,5 @@
 const yargs = require("yargs");
-const chalk = require('chalk')
-const fs = require("fs");
+const { readDirectory } = require('./fileRead')
 
 /*
 The purpose of this module:
@@ -44,29 +43,9 @@ yargs
   .alias("h", "help")
   .demandCommand().argv;
 
-let files = [];
+const files = readDirectory(yargs);
 
-if (yargs.argv._.length === 1 && yargs.argv._[0] === "start") {
-  // decide the option if it is -f or -a
-  if (yargs.argv.a && typeof yargs.argv.f !== "string") {
-    const tmpFiles = fs.readdirSync(__dirname, { encoding: "utf-8" });
-
-
-    // if -a, store all files into the files variable
-    files = tmpFiles.filter((file) => {
-      return file.toLowerCase().endsWith(".html");
-    });
-  } else if (typeof yargs.argv.f === "string") {
-    files = [...yargs.argv.f.split(",")];
-  } else{
-    console.log(chalk.yellow("Please enter filenames or -a following -f"))
-  }
-} else {
-  console.log(chalk.yellow("Wrong argument: use [start]"));
-}
-const yargObj = {
+module.exports = {
   files,
   arg: yargs.argv,
 };
-
-module.exports = yargObj;
