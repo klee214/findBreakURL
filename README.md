@@ -7,7 +7,7 @@ You can specify a HTML file with its' name or otherwise it will automatically de
 For example, 
 ```
 <tool name> [options] filename => one html file
-             <tool name> [options] [options] => any html files within the directory.
+             <tool name> [options] [options] => any html files within the given path.
 ```
 
 ## Installation
@@ -33,30 +33,31 @@ Keep in mind! You have to put the html files you want to test in the findBreakUR
 In other words, index.js and your testing html files must be in the same folder.
 
 The tool name(cli program name) is url-tester.
-It has only one command and 2 options.
+It has 6 options.
 ```
 Usage: url-tester <command> [options] <optionalFilename>
 
 Commands:
-  index.js start  Test to find any broken URL
+  index start  Test to find any broken URL
 
 Options:
-  -f, --file     Load all specified files (delimiter is ',')          [required]
+  -f, --file     Load all specified files (delimiter is ',')
   -a, --all      Load all HTML files in the current dir
   -j, --json     Display all results as JSON format
-  -g, --good     Display only good URL
+  -g, --good     Display only BAD URL
   -v, --version  Show version number                                   [boolean]
   -h, --help     Show help                                             [boolean]
 
 Examples:
   url-tester start -f=foo1.html,foo2.txt  Test if there is any broken URL in the
                                           files
-  url-tester start -f -a                  Test broken URL in the only 'html'
+  url-tester start -a                     Test broken URL in the only 'html'
                                           files in the current dir
   url-tester start -f=foo1.html -j        Display all results as JSON format{
                                           url: 'https://...': status '200' },
                                           ...
   url-tester start -f=foo1.html -g        Display only good URL
+  url-tester start -f=foo1.html -b        Display only baad URL
 ```
 ## Outcome exmple
 ![outcomes](https://github.com/klee214/findBreakURL/blob/master/Capture.PNG)
