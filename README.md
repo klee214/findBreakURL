@@ -1,39 +1,50 @@
 # findBreakURL
 
 ## Description
-This tool will detect any broken URL inside either single HTML file or multiple HTML files (decided by options). 
+
+This tool will detect any broken URL inside either single HTML file or multiple HTML files (decided by options).
 You can specify a HTML file with its' name or otherwise it will automatically detects any HTML files in the current directory.
 
-For example, 
+For example,
+
 ```
 <tool name> [options] filename => one html file
              <tool name> [options] [options] => any html files within the given path.
 ```
 
 ## Installation
-1. Clone the entire code like wise 
+
+1. Clone the entire code like wise
+
 ```
 git clone <This git repos url/ssh>
 ```
+
 2. After installing it, change to the cloned directory, and install npm modules globally (suggested)
+
 ```
 cd findBreakURL
 npm i -g
 ```
+
 // OR
+
 ```
 cd findBreakURL
-npm i 
+npm i
 npm link
 ```
+
 3. Now, you are good to go.
-               
+
 ## Usage
+
 Keep in mind! You have to put the html files you want to test in the findBreakURL folder.
 In other words, index.js and your testing html files must be in the same folder.
 
 The tool name(cli program name) is url-tester.
 It has 6 options.
+
 ```
 Usage: url-tester <command> [options] <optionalFilename>
 
@@ -59,8 +70,11 @@ Examples:
   url-tester start -f=foo1.html -g        Display only good URL
   url-tester start -f=foo1.html -b        Display only baad URL
 ```
+
 ## Outcome exmple
+
 ![outcomes](https://github.com/klee214/findBreakURL/blob/master/Capture.PNG)
 
 ## License
+
 MIT License
