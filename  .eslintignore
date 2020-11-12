@@ -1,0 +1,17 @@
+# ignore all html files
+*.html
+
+# ignore all markdown files
+*.md
+
+# ignore package json files
+package-lock.json
+package.json
+
+# dependency and vscode directories
+node_modules/
+.vscode/
+
+# txt and license files
+*.txt
+LICENSE

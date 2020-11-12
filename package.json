@@ -4,10 +4,13 @@
   "description": "this is the cmd program to find broken url line",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prettier": "prettier --write .",
+    "start": "node index.js",
+    "lint" : "eslint --ext .js ."
   },
   "bin": {
-    "url-tester": "./index.js"
+    "url-tester": "index.js"
   },
   "author": "Kimin Lee",
   "license": "MIT",
@@ -17,5 +20,9 @@
     "nodemon": "^2.0.4",
     "validator": "^13.1.1",
     "yargs": "^16.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^7.13.0",
+    "prettier": "2.1.2"
   }
 }
