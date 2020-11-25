@@ -1,5 +1,5 @@
 const chalk = require('chalk');
-const axios = require('axios');
+const { axiosFetch } = require('./axios_fetch');
 const { arg } = require('./yargs');
 
 /*
@@ -10,61 +10,18 @@ const { arg } = require('./yargs');
 
 const fetchFunction = async (url, file) => {
     try {
-        const response = await axios.head(url);
-
-        // 300 series... redirect status. However axios does redirect to the changed URL automatically
-        // So status will be normal 200 in the most of the time.
-        // Most of the case this will not be run. I will implement this here just in case.
+        const status = await axiosFetch(url);
         if (!arg.b) {
-            if (response.status === 301) {
-                chalk.black.bgYellow(
-                    console.log(
-                        'In ' +
-                            file +
-                            ' file, the URL: ' +
-                            url +
-                            '. Status code: 301, Moved Permanently to: ' +
-                            response.headers['Location']
-                    )
-                );
-            } else if (response.status === 307) {
-                chalk.black.bgYellow(
-                    console.log(
-                        'In ' +
-                            file +
-                            ' file, the URL: ' +
-                            url +
-                            '. Status code: 307, Temporary Redirect to: ' +
-                            response.headers['Location']
-                    )
-                );
-            } else if (response.status === 308) {
-                chalk.black.bgYellow(
-                    console.log(
-                        'In ' +
-                            file +
-                            ' file, the URL: ' +
-                            url +
-                            '. Status code: 308, Permanent Redirect to: ' +
-                            response.headers['Location']
-                    )
-                );
-                // Success status : 200
-            } else {
-                console.log(
-                    chalk.black.bgGreen.bold(
-                        'In ' +
-                            file +
-                            ' file, the URL: ' +
-                            url +
-                            ' is success: '
-                    )
-                );
-                console.log(
-                    chalk.green.underline.bold('STATUS: ' + response.status)
-                );
-            }
+            console.log(
+                chalk.black.bgGreen.bold(
+                    'In ' + file + ' file, the URL: ' + url + ' is success: '
+                )
+            );
+            console.log(
+                chalk.green.underline.bold('STATUS: ' + status)
+            );
         }
+        return status;
     } catch (error) {
         if (!arg.g) {
             // If 404 error :
