@@ -4,10 +4,11 @@
   "description": "this is the cmd program to find broken url line",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --",
+    "coverage": "jest --collectCoverage --",
     "prettier": "prettier --write .",
     "start": "node index.js",
-    "lint" : "eslint --ext .js ."
+    "lint": "eslint --ext .js ."
   },
   "bin": {
     "url-tester": "index.js"
@@ -23,6 +24,8 @@
   },
   "devDependencies": {
     "eslint": "^7.13.0",
+    "jest": "^26.6.3",
+    "nock": "^13.0.5",
     "prettier": "2.1.2"
   }
 }
