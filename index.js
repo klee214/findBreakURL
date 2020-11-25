@@ -39,22 +39,26 @@ if (arg.a) {
         });
 } else {
     // Start testing files each
-    files.map((file) => {
-        const fileData = fileRead(file);
+    if (files) {
+        files.map((file) => {
+            const fileData = fileRead(file);
 
-        const regex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/g;
-        const findURL = fileData.match(regex);
+            if (fileData) {
+                const regex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/g;
+                const findURL = fileData.match(regex);
 
-        if (findURL) {
-            findURL.forEach(async (url) => {
-                if (validator.isURL(url)) {
-                    if (arg.j) {
-                        await jsonFetch(url);
-                    } else {
-                        await fetchFunction(url, file);
-                    }
+                if (findURL) {
+                    findURL.forEach(async (url) => {
+                        if (validator.isURL(url)) {
+                            if (arg.j) {
+                                await jsonFetch(url);
+                            } else {
+                                await fetchFunction(url, file);
+                            }
+                        }
+                    });
                 }
-            });
-        }
-    });
+            }
+        });
+    }
 }

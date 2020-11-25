@@ -6,14 +6,12 @@ const fileRead = (file) => {
     let fileData = null;
 
     try {
-        fileData = fs.readFileSync(path.resolve(`${__dirname}`, `./${file}`), {
+        fileData = fs.readFileSync(file, {
             encoding: 'utf-8',
         });
-
         // wrong file name
     } catch (error) {
         console.log(file + ' is a WRONG file name');
-        return process.exit(1);
     }
     return fileData;
 };
@@ -46,10 +44,10 @@ const readDirectory = (yargs) => {
                 )
             );
         }
-        return files;
     } else {
         console.log(chalk.yellow('Wrong argument: use [start]'));
     }
+    return files;
 };
 
 module.exports = { fileRead, readDirectory };
