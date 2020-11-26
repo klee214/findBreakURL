@@ -48,7 +48,7 @@ yargs
     .alias('h', 'help')
     .demandCommand().argv;
 
-const files = readDirectory(yargs);
+const files = readDirectory(yargs.argv);
 
 module.exports = {
     files,

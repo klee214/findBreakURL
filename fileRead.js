@@ -1,6 +1,5 @@
 const fs = require('fs');
 const chalk = require('chalk');
-const path = require('path');
 
 const fileRead = (file) => {
     let fileData = null;
@@ -16,12 +15,12 @@ const fileRead = (file) => {
     return fileData;
 };
 
-const readDirectory = (yargs) => {
+const readDirectory = (argv) => {
     let files = [];
-    if (yargs.argv._.length === 1 && yargs.argv._[0] === 'start') {
+    if (argv._.length === 1 && argv._[0] === 'start') {
         // decide the option if it is -f or -a
-        if (typeof yargs.argv.p === 'string') {
-            const tmpFiles = fs.readdirSync(yargs.argv.p, {
+        if (typeof argv.p === 'string') {
+            const tmpFiles = fs.readdirSync(argv.p, {
                 encoding: 'utf-8',
             });
 
@@ -29,12 +28,12 @@ const readDirectory = (yargs) => {
             files = tmpFiles.filter((file) => {
                 return file.toLowerCase().endsWith('.html');
             });
-        } else if (typeof yargs.argv.f === 'string') {
-            files = [...yargs.argv.f.split(',')];
-        } else if (typeof yargs.argv.a === 'string') {
+        } else if (typeof argv.f === 'string') {
+            files = [...argv.f.split(',')];
+        } else if (typeof argv.a === 'string') {
             console.log(
                 chalk.greenBright(
-                    `You are testing REST API:"${yargs.argv.a}". Please wait...`
+                    `You are testing REST API:"${argv.a}". Please wait...`
                 )
             );
         } else {
