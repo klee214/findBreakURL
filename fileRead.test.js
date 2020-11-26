@@ -65,14 +65,6 @@ describe('directory reading test', () => {
         expect(readDirectory(argv)).toEqual(['test1.js', 'test2.html']);
     });
 
-    test('valid file should return the file', () => {
-        const argv = {
-            _: ['start'],
-            f: 'test1.js,test2.html',
-        };
-        expect(readDirectory(argv)).toEqual(['test1.js', 'test2.html']);
-    });
-
     test('-a option should return null', () => {
         const argv = {
             _: ['start'],
