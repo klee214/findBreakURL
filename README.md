@@ -75,6 +75,9 @@ Examples:
 
 ![outcomes](https://github.com/klee214/findBreakURL/blob/master/Capture.PNG)
 
+## Contribution
+There is no strict rule you to follow to contribute to this application. BUT, there may be something you need to pre-install and make some configuration to run and test the program. Please visit [CONTRIBUTION.md](https://github.com/klee214/findBreakURL/blob/master/CONTRIBUTION.md) 
+
 ## License
 
 MIT License

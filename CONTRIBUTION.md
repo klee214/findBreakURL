@@ -12,3 +12,9 @@ _install vscode_
 3. If you fail downloading `eslint` or `prettier` with extension downloading, need to be installed manually,
 _a) npm install eslint --save-dev_
 _b) npm install prettier --save-dev_
+
+## Testing
+Before commit and push your changes, please make sure that your change passes all the unit test. 
+Also, if you create a new function or file, please add a new unit test for it. For the testing, JEST is used. 
+
+This program is using node.js CI in github, will automatically test your commit once you push the commit. 
