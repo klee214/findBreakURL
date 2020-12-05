@@ -1,16 +1,17 @@
 const fs = require('fs');
 const chalk = require('chalk');
+const path = require('path');
 
 const fileRead = (file) => {
     let fileData = null;
-
+    const filePath = path.join(`${process.cwd()}`, `/${file}`);
     try {
-        fileData = fs.readFileSync(file, {
+        fileData = fs.readFileSync(path.join(filePath), {
             encoding: 'utf-8',
         });
         // wrong file name
     } catch (error) {
-        console.log(file + ' is a WRONG file name');
+        console.log(filePath + ' is a WRONG file name');
     }
     return fileData;
 };

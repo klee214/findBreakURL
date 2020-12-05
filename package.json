@@ -1,17 +1,17 @@
 {
-  "name": "url-tester",
-  "version": "1.2.1",
+  "name": "kimin-url-checker",
+  "version": "1.0.0",
   "description": "this is the cmd program to find broken url line",
   "main": "index.js",
+  "bin":{
+      "kimin-url-checker":"./bin/find-break-url.js"
+  },
   "scripts": {
     "test": "jest --",
     "coverage": "jest --collectCoverage --",
     "prettier": "prettier --write .",
     "start": "node index.js",
     "lint": "eslint --ext .js ."
-  },
-  "bin": {
-    "url-tester": "index.js"
   },
   "author": "Kimin Lee",
   "license": "MIT",

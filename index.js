@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 const { fetchFunction } = require('./fetch');
 const validator = require('validator');
 const { arg, files } = require('./yargs');
