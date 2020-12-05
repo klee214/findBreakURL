@@ -12,7 +12,7 @@ For example,
              <tool name> [options] [options] => any html files within the given path.
 ```
 
-## Installation
+## Developer Installation
 
 1. Clone the entire code like wise
 
@@ -39,14 +39,16 @@ npm link
 
 ## Usage
 
-Keep in mind! You have to put the html files you want to test in the findBreakURL folder.
-In other words, index.js and your testing html files must be in the same folder.
+This is a CLI program to verify your URL lists are actually not broken. It tries to send the real API header get request to check if the communication is successfully connected.
 
-The tool name(cli program name) is url-tester.
+>To install the program:
+>npm i kimin-url-checker@1.0.0
+
+The tool name(cli program name) is kimin-url-checker.
 It has 6 options.
 
 ```
-Usage: url-tester <command> [options] <optionalFilename>
+Usage: kimin-url-checker start [options] <optionalFilename>
 
 Commands:
   index start  Test to find any broken URL
@@ -60,15 +62,15 @@ Options:
   -h, --help     Show help                                             [boolean]
 
 Examples:
-  url-tester start -f=foo1.html,foo2.txt  Test if there is any broken URL in the
+  kimin-url-checker start -f=foo1.html,foo2.txt  Test if there is any broken URL in the
                                           files
-  url-tester start -a                     Test broken URL in the only 'html'
+  kimin-url-checker start -a                     Test broken URL in the only 'html'
                                           files in the current dir
-  url-tester start -f=foo1.html -j        Display all results as JSON format{
+  kimin-url-checker start -f=foo1.html -j        Display all results as JSON format{
                                           url: 'https://...': status '200' },
                                           ...
-  url-tester start -f=foo1.html -g        Display only good URL
-  url-tester start -f=foo1.html -b        Display only baad URL
+  kimin-url-checker start -f=foo1.html -g        Display only good URL
+  kimin-url-checker start -f=foo1.html -b        Display only baad URL
 ```
 
 ## Outcome exmple
